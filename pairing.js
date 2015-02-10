@@ -42,10 +42,7 @@ function shuffle(array) {
 $(document).ready(function() {
   var pairing = shuffle(studentArray);
 
-  var button = '<div class="ui button">Start Over</div>';
 
-
-  $('body').append(button);
   $('#first').append(pairing[0]);
   $('#second').append(pairing[1]);
 
@@ -54,7 +51,12 @@ $(document).ready(function() {
   console.log(pairing);
 
   $('body').on('click', '.button', function(event) {
-    shuffle(studentArray);
+    newPairing = shuffle(studentArray);
+    $('#first').empty();
+    $('#second').empty();
+
+    $('#first').append(newPairing[0]);
+    $('#second').append(newPairing[1]);
 
     console.log('clickety');
   });
